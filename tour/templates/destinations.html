@@ -1,0 +1,56 @@
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+
+    <div>
+    <h1>destination-page</h1><hr><br>
+    
+
+
+
+  {% for d in dest %}
+  <div class="row search-card-result">
+   <div class="col-md-3">
+      
+      <a href="">
+          <img class="img-fluid" src="{{d.destination_images.url}}" alt="Card image cap">
+      
+      </a>
+      
+      </div>
+ 
+      <div class="col-md-5">
+          <h5>{{d.destination_name }}</h5>
+          
+          <p>
+            {{d.destination_description|truncatechars:150 }}
+          </p>
+          <!-- <p>
+              {%for amenitie in hotels_obj.amenities.all %}
+              <b>{{amenitie.amenity_name}}</b>,
+              {% endfor %}
+          </p> -->
+          
+      </div>
+      <div class="col-md-2 border-left text-center more-offers">
+          
+          <!-- <p>Place.com</p> -->
+          
+      </div>
+      <div class="col-md-2 border-left text-center more-offers">
+          <input type="submit" class="btn btn-success">
+         
+          <div class=>  View deal </div>
+      </div>
+  </div>
+  {% endfor %}
+ 
+</div>
+
+
+
+
+          
+    
+      
+{% endblock %}

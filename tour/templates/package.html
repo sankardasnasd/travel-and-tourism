@@ -1,0 +1,112 @@
+
+{% extends 'nav.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5 pt-5">
+    
+    
+                
+
+              
+        
+    <form>
+    <div class="row mt-3">
+        <div class="col-md-4">
+        <div class="form-inline">
+            <label class="" for="exampleFormControlSelect1">Sort by</label>
+            <select class="form-control" name="sort_by" id="exampleFormControlSelect1">
+                <option value="">Recommended</option>
+                <option  value="ASC">Low to high</option>
+                <option value="DSC">High to low</option>
+                
+               
+            </select>
+        </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-inline">
+                <label class="" for="exampleFormControlSelect1">Search</label>
+                <input name="search" class="form-control" value="{{search}}" placeholder="Search"> 
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-inline">
+               <label class="" for="exampleFormControlSelect1">Amenities</label>
+                <select name="amenities" class="form-control" multiple>
+
+                <option value="">Choose</option>
+                
+               
+            </select>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+         
+                <button style="margin-top: 30px;" type="submit" class="btn btn-success">Find</button>
+            </div>
+    </div>
+    </form>
+
+
+
+{% for p in package_objs %} 
+
+  <div class="container mt-5 pt-5">
+    
+    <div class="row search-card-result">
+                
+
+              
+        <div class="col-md-3">
+            <a href="package-booking{{p.uid}}">
+                <img class="img-fluid" src="{{p.package_images.url}}" alt="Card image cap">
+            
+            </a>
+
+          <!-- <img src="{{p.package_images.url}}" class="card-img-top" alt="..." sizes="auto"> -->
+            
+        
+        </a></div>
+   
+        <div class="col-md-5">
+            <h5></h5>
+            
+            <h2 class="text-center text-dark">{{p.package_name}}</h2>
+                
+            
+            <p>
+                {{p.Package_description|truncatechars:150}}
+
+                
+                <b>{{p.package_amenity_name}}</b>,
+                
+              
+            </p>
+            
+        </div>
+        <div class="col-md-2 border-left text-center more-offers">
+             
+           
+            <p>RS :{{p.package_price}}/Person</p>
+            <p>Days :{{p.package_days}}</p>
+            
+        </div>
+        <div class="col-md-2 border-left text-center more-offers">
+           
+            <div class="btn btn-success">View deal </div>
+        </div>
+    </div>
+    </div>
+    
+    </div>
+
+    {% endfor %}
+    
+        
+    </div>
+    
+          
+    {% endblock %}
